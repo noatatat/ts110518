@@ -31,3 +31,8 @@ function summator(...args: Array<string | number>): string | number {
   return sum;
 };
 
+function getUnique(...args: Array<string|number|boolean>): Array<string|number|boolean> {
+  return Array.from(new Set(args));
+}
+
+
