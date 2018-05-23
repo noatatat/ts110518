@@ -1,3 +1,5 @@
+/*--1--*/
+
 function isInArray(arr: Array<string | number | boolean>, ...args: Array<string | number | boolean>): boolean {
   let flag: boolean = true;
   args.forEach(item => {
@@ -5,6 +7,8 @@ function isInArray(arr: Array<string | number | boolean>, ...args: Array<string 
   });
   return flag;
 }
+
+/*--2--*/
 
 function summator(...args: number[]): number;
 function summator(...args: string[]): string;
@@ -31,8 +35,25 @@ function summator(...args: Array<string | number>): string | number {
   return sum;
 };
 
+/*--3--*/
+
 function getUnique(...args: Array<string|number|boolean>): Array<string|number|boolean> {
   return Array.from(new Set(args));
 }
 
+/*--4--*/
 
+function reverse(str: string): string {
+  let arr = str.split(' ');
+  
+  function reverseWord(str: string):string {
+    let arr = str.split('');
+    let newArr: Array<string> = arr.filter(symb => symb.match(/[a-z]/i)).reverse();
+      arr.forEach((symb, i) => {
+      if (!symb.match(/[a-z]/i)) newArr.splice(i, 0, symb);
+    })
+    return newArr.join('');
+  }
+
+  return arr.map(word => reverseWord(word)).join(' ');
+}
