@@ -1,11 +1,8 @@
 /*--1--*/
+type Snb = string | number | boolean;
 
-function isInArray(arr: Array<string | number | boolean>, ...args: Array<string | number | boolean>): boolean {
-  let flag: boolean = true;
-  args.forEach(item => {
-    if (arr.find(el => el === item) === undefined) flag = false;
-  });
-  return flag;
+function isInArray(arr: Array<Snb>, ...args: Array<Snb>): boolean {
+  return args.every(item => arr.includes(item));
 }
 
 /*--2--*/
@@ -33,11 +30,11 @@ function summator(...args: Array<string | number>): string | number {
   }
 
   return sum;
-};
+}
 
 /*--3--*/
 
-function getUnique(...args: Array<string|number|boolean>): Array<string|number|boolean> {
+function getUnique(...args: Array<Snb>): Array<Snb> {
   return Array.from(new Set(args));
 }
 
@@ -51,7 +48,7 @@ function reverse(str: string): string {
     let newArr: Array<string> = arr.filter(symb => symb.match(/[a-z]/i)).reverse();
       arr.forEach((symb, i) => {
       if (!symb.match(/[a-z]/i)) newArr.splice(i, 0, symb);
-    })
+    });
     return newArr.join('');
   }
 
